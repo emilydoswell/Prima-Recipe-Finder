@@ -13,7 +13,6 @@ function App() {
     getRecipes();
     const saved = JSON.parse(localStorage.getItem('savedRecipes')) || [];
     setSavedRecipes(saved);
-    console.log(savedRecipes);
   }, [query]);
 
   const url = `https://api.api-ninjas.com/v1/recipe?query=${query}`;
@@ -34,11 +33,10 @@ function App() {
       return response.json();
     })
     .then(result => {
-      console.log(result); // Handle success
       setRecipes(result);
     })
     .catch(error => {
-      console.error('Error:', error.message); // Handle error
+      console.error('Error:', error.message);
     });
   };
 
@@ -73,6 +71,7 @@ function App() {
       <div className="recipeListContainer">
         <SavedRecipesList recipes={savedRecipes}/>
       </div>
+      <h3>Search for Recipes</h3>
       <form onSubmit={getSearch} className="search-form">
         <input className="search-bar" type="text" value={search} onChange={updateSearch}/>
         <button className="search-button button" type="submit">

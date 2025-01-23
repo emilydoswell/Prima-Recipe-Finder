@@ -16,8 +16,8 @@ function App() {
     console.log(savedRecipes);
   }, [query]);
 
-  const apiKey = 'WkfnTasjSTjZY+uxDXwSWQ==xZgvYFcjauxlFui1';
   const url = `https://api.api-ninjas.com/v1/recipe?query=${query}`;
+  const apiKey = import.meta.env.VITE_APIKEY;
 
   const getRecipes = async () => {
     fetch(url, {
@@ -70,15 +70,15 @@ function App() {
       <div>
         <h1>Recipe Finder</h1>
       </div>
+      <div className="recipeListContainer">
+        <SavedRecipesList recipes={savedRecipes}/>
+      </div>
       <form onSubmit={getSearch} className="search-form">
         <input className="search-bar" type="text" value={search} onChange={updateSearch}/>
         <button className="search-button button" type="submit">
           Search
         </button>
       </form>
-      <div className="recipeListContainer">
-        <SavedRecipesList recipes={savedRecipes}/>
-      </div>
       <div className="recipes">
         {recipes.map(recipe => (
           <Recipe

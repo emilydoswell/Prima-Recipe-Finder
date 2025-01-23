@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import RecipeCard from './RecipeCard';
+import './SavedRecipesList.css';
 
 function SavedRecipesList({
   recipes
@@ -29,13 +30,13 @@ function SavedRecipesList({
 
   return (
     <div>
-      <h2>Saved Recipes</h2>
+      <h3>Saved Recipes</h3>
       <ul>
-        <li>
-          {recipes.map((recipe, i) => (
+        {recipes.map((recipe, i) => (
+          <li key={i} className="recipesList">
             <button onClick={() => getRecipeDetailsByName(recipe.name)} key={i} className="button">{recipe.name}</button>
-          ))}
-        </li>
+          </li>
+        ))} 
       </ul>
       <div>
         { openRecipeCard && (

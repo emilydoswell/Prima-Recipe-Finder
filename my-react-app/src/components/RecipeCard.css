@@ -14,3 +14,11 @@
   align-items: center;
   z-index: 1000;
 }
+
+.recipeCardList {
+  list-style-type: none;
+}
+
+.instructionsContainer {
+  padding: 0% 8% 0% 8%;
+}

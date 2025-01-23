@@ -33,6 +33,18 @@
   }
 }
 
+@media (min-width: 786px) {
+  h2 {
+    font-size: 2em;
+  }
+}
+
+@media (min-width: 1024px) {
+  h2 {
+    font-size: 2em;
+  }
+}
+
 .card {
   padding: 2em;
 }

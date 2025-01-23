@@ -7,7 +7,8 @@ function Recipe({
   name,
   ingredients,
   description,
-  instructions
+  instructions,
+  onSave
 }) {
 
   const [openRecipeCard, setOpenRecipeCard] = useState(false);
@@ -24,8 +25,10 @@ function Recipe({
           />
         )}
       </div>
-      <div className="recipe">
-          <h2>{name}</h2>
+      <div className="recipeContainer">
+          <div className="recipeHeadings">
+            <h2>{name}</h2>
+          </div>
           <h3>Description: </h3>
           <p>{description}</p>
           <img 
@@ -35,10 +38,10 @@ function Recipe({
             sizes="(max-width: 600px) 100vw, (max-width: 1000px) 50vw, 33vw"
           />
           <div className="recipeBtn">
-            <button onClick={() => setOpenRecipeCard(true)}>
+            <button onClick={() => setOpenRecipeCard(true)} className="button">
               Open
             </button>
-            <button>
+            <button onClick={() => onSave(name, ingredients, description, instructions)} className="button">
               Save
             </button>
           </div>
@@ -51,7 +54,8 @@ Recipe.propTypes = {
   name: PropTypes.string.isRequired,
   ingredients: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  instructions: PropTypes.string.isRequired
+  instructions: PropTypes.string.isRequired,
+  onSave: PropTypes.func.isRequired
 };
 
 export default Recipe;

@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import './RecipeCard.css';
 
 function RecipeCard({
   name,
@@ -7,17 +8,19 @@ function RecipeCard({
   instructions
 }) {
   return (
-    <div>
-      <h2>{name}</h2>
-      <h3>Ingredients:</h3>
-      <ul>
-        {ingredients.split("|").map((ingredient, index) => (
-          <li key={index}>{ingredient}</li>
-        ))}
-      </ul>
-      <h3>Instructions:</h3>
-      <p>{instructions}</p>
-      <button onClick={closeModal}>Close Recipe Card</button>
+    <div className="recipeCardOverlay">
+      <div className="recipeCardContainer">
+        <h2>{name}</h2>
+        <h3>Ingredients:</h3>
+        <ul>
+          {ingredients.split("|").map((ingredient, index) => (
+            <li key={index}>{ingredient}</li>
+          ))}
+        </ul>
+        <h3>Instructions:</h3>
+        <p>{instructions}</p>
+        <button onClick={closeModal} className="button">Close Recipe Card</button>
+      </div>
     </div>
   );
 };

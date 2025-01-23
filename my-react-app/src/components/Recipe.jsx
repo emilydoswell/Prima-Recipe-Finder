@@ -5,7 +5,6 @@ import RecipeCard from './RecipeCard';
 
 function Recipe({
   name,
-  // image,
   ingredients,
   description,
   instructions
@@ -31,16 +30,18 @@ function Recipe({
           <p>{description}</p>
           <img 
             className="image" 
-            src="src/images/cakeImage.jpg" 
-            alt="Chocolate Cake"
+            src="src/images/food.jpg" 
+            alt="Recipe Image showing bowl of salad and pitta on table with plants"
             sizes="(max-width: 600px) 100vw, (max-width: 1000px) 50vw, 33vw"
           />
-          <button onClick={() => setOpenRecipeCard(true)}>
-            Open
-          </button>
-          <button>
-            Save
-          </button>
+          <div className="recipeBtn">
+            <button onClick={() => setOpenRecipeCard(true)}>
+              Open
+            </button>
+            <button>
+              Save
+            </button>
+          </div>
       </div>
     </div>
   );
